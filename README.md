@@ -12,7 +12,8 @@ The purpose of this application is to provide a platform where users can browse 
 - Detailed View: Clicking on a property card reveals a modal with more detailed information about the listing, providing users with a deeper understanding of the property.
 - Responsive Design: The application is fully responsive, ensuring a seamless experience across various devices and screen sizes.
 - Modern Tech Stack: Utilizing the MERN stack for full-stack JavaScript development, the application is built on a foundation of widely-used, cutting-edge technologies.
-- API Logging: The Node.js backend logs all calls to the API endpoint. 
+- API Logging: Enhanced logging mechanisms have been implemented within the Node.js backend to log all interactions with the API endpoint. This feature not only aids in monitoring and debugging by providing a clear record of incoming requests and potential errors but also contributes to the application's security by allowing for the analysis of traffic patterns and detection of anomalous activities. 
+- Dynamic UI Enhancements: The application's user interface is enriched with dynamic UI enhancements, including transitions and animations that provide visual feedback during interaction, contributing to a more engaging user experience. Lazy loading of images and content ensures that performance is optimized, especially on devices with limited resources. Additionally, the UI adapts in real-time to user interactions, such as filtering and sorting listings, showcasing the application's reactive capabilities.
 
 ## Components
 The application is structured into several key components, each responsible for a specific aspect of the application's functionality:
@@ -20,6 +21,7 @@ The application is structured into several key components, each responsible for 
 - Express.js Backend: Serves as the API layer, handling requests to fetch listings from the MongoDB database and send them to the frontend.
 - React Frontend: Provides the interactive user interface, displaying property listings, and detailed views through modal windows.
 - Node.js Server: Powers the Express.js backend, enabling the application to be a single, cohesive unit that handles both server-side and client-side logic.
+- Advanced Routing and Navigation: The application incorporates advanced routing and navigation facilitated by React Router. This setup enables the seamless transition between different views without the need for page reloads, enhancing the user experience. 
 
 ## Complexity and Technical Highlights
 - Database Integration: Demonstrates the ability to integrate a NoSQL database (MongoDB) with a Node.js backend, showcasing skills in database management and API development.
