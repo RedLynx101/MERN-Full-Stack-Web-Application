@@ -6,22 +6,18 @@ import { Listing } from './types'; // Import the interface
 function App() {
   const [listings, setListings] = useState<Listing[]>([]); // Use the interface
 
+  // Fetch the listings from the server
   useEffect(() => {
     fetch('/api/listings')
       .then(response => response.json())
       .then((data: Listing[]) => { // Typecast to Listing[]
-        // Transform data if necessary (e.g., converting $numberDecimal)
-        const transformedData = data.map(listing => ({
-          ...listing,
-          price: parseFloat(listing.price.$numberDecimal),
-          bathrooms: parseFloat(listing.bathrooms.$numberDecimal),
-          // Apply similar transformations for other DecimalFields
-        }));
-        setListings(transformedData);
+        setListings(data); // Set the fetched data
       })
       .catch(error => console.error("Failed to fetch listings:", error));
   }, []);
+  
 
+  // Render the listings as cards on the page
   return (
     <div className="App">
       <header className="App-header">
@@ -34,8 +30,9 @@ function App() {
           <div key={listing._id} className="card">
             <h2>{listing.name}</h2>
             <p>Beds: {listing.beds}</p>
-            <p>Price: ${listing.price.toString()}</p>
-            <p>Bathrooms: {listing.bathrooms.toString()}</p>
+            <p>Price: ${listing.price.$numberDecimal}</p>
+            <p>Bathrooms: {listing.bathrooms.$numberDecimal}</p>
+            <img src={listing.images.picture_url} alt={listing.name} className='card-img' />
           </div>
         ))}
       </div>

@@ -26,9 +26,9 @@ export interface Listing {
     bedrooms: number;
     beds: number;
     number_of_reviews: number;
-    bathrooms: DecimalField;
+    bathrooms: { $numberDecimal: string};
     amenities: string[];
-    price: DecimalField;
+    price: { $numberDecimal: string}
     security_deposit: DecimalField;
     cleaning_fee: DecimalField;
     extra_people: DecimalField;
@@ -40,6 +40,8 @@ export interface Listing {
     review_scores: ReviewScores;
     reviews: Review[];
 }
+
+
 
 export interface DecimalField {
     $numberDecimal: string;
