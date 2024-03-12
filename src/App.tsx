@@ -6,6 +6,12 @@ import { Listing } from './types'; // Import the interface
 function App() {
   const [listings, setListings] = useState<Listing[]>([]); // Use the interface
 
+  const handleCardClick = (listing: Listing) => {
+    setSelectedListing(listing);
+  };
+  
+  const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+
   // Fetch the listings from the server
   useEffect(() => {
     fetch('/api/listings')
@@ -15,6 +21,7 @@ function App() {
       })
       .catch(error => console.error("Failed to fetch listings:", error));
   }, []);
+  
   
 
   // Render the listings as cards on the page
@@ -27,7 +34,7 @@ function App() {
       </header>
       <div className="listings">
         {listings.map(listing => (
-          <div key={listing._id} className="card">
+          <div key={listing._id} className="card" onClick={() => handleCardClick(listing)}>
             <h2>{listing.name}</h2>
             <p>Beds: {listing.beds}</p>
             <p>Price: ${listing.price.$numberDecimal}</p>
@@ -35,7 +42,25 @@ function App() {
             <img src={listing.images.picture_url} alt={listing.name} className='card-img' />
           </div>
         ))}
+        {
+          selectedListing && (
+            <div className="modal" style={{ display: 'block' }}>
+              <img src={selectedListing.images.picture_url} alt={selectedListing.name} className='modal-img' />
+              <h2>{selectedListing.name}</h2>
+              <p>{selectedListing.summary}</p>
+              <p>Beds: {selectedListing.beds}</p>
+              <p>Price: ${selectedListing.price.$numberDecimal}</p>
+              <p>Bathrooms: {selectedListing.bathrooms.$numberDecimal}</p>
+              <p>Host: {selectedListing.host.host_name}</p>
+              <p>Location: {selectedListing.address.street}</p>
+              <p>Notes: {selectedListing.notes}</p>
+              <button onClick={() => setSelectedListing(null)}>Close</button>
+            </div>
+          )
+        }
+
       </div>
+
     </div>
   );
 }
