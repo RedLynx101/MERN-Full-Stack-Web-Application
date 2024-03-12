@@ -8,6 +8,7 @@ client/node_modules
 
 # testing
 /coverage
+api_log.txt
 
 # production
 /build

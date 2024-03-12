@@ -9,6 +9,7 @@ require('dotenv').config();
 app.get('/', (req, res) => res.send('Hello World from the back-end!'));
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const fs = require('fs');
 const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@mern1.bsj6pls.mongodb.net/?retryWrites=true&w=majority&appName=${process.env.MONGO_DB_NAME}`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -44,6 +45,17 @@ app.get('/api/listings', async (req, res) => {
         const collection = client.db("sample_airbnb").collection("listingsAndReviews");
         const listings = await collection.find({}).limit(50).toArray();
         console.log(`Fetched 50 listings at ${new Date()}.`);
+
+        // Add a record of the request to a log file
+        const logData = `Request received at ${new Date()}: ${req.method} ${req.url} from ${req.ip}\n`;
+        fs.appendFile('api_log.txt', logData, (err) => {
+            if (err) {
+            console.error("Failed to write to log file:", err);
+            } else {
+            console.log("Request logged successfully.");
+            }
+        });
+
         res.json(listings);
     } catch (error) {
         console.error("Failed to fetch listings:", error);
