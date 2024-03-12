@@ -12,6 +12,7 @@ The purpose of this application is to provide a platform where users can browse 
 - Detailed View: Clicking on a property card reveals a modal with more detailed information about the listing, providing users with a deeper understanding of the property.
 - Responsive Design: The application is fully responsive, ensuring a seamless experience across various devices and screen sizes.
 - Modern Tech Stack: Utilizing the MERN stack for full-stack JavaScript development, the application is built on a foundation of widely-used, cutting-edge technologies.
+- API Logging: The Node.js backend logs all calls to the API endpoint. 
 
 ## Components
 The application is structured into several key components, each responsible for a specific aspect of the application's functionality:
