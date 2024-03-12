@@ -32,6 +32,12 @@ function App() {
         <p>MongoDB + Express + React + Node.js</p>
         <h3>Made by Noah Hicks</h3>
       </header>
+
+      <div><br />
+        <h2>Charts for MongoDB</h2>
+        <iframe title="MongoDB Charts" style={{ background: '#21313C', border: '1px solid #000', borderRadius: '2px', boxShadow: '0 2px 10px 0 rgba(70, 76, 79, .2)' }} width="640" height="480" src="https://charts.mongodb.com/charts-project-0-noegq/embed/charts?id=65f07a76-1d0c-432f-8059-06afb883bbea&maxDataAge=3600&theme=dark&autoRefresh=true"></iframe>
+      </div>
+
       <div className="listings">
         {listings.map(listing => (
           <div key={listing._id} className="card" onClick={() => handleCardClick(listing)}>
