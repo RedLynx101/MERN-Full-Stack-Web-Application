@@ -1,3 +1,5 @@
+Author: Noah Hicks
+
 # MERN Stack Real Estate Listings Application
 This project is a full-fledged MERN stack application that showcases real estate listings, demonstrating a modern web application's end-to-end development and deployment. The application is built using MongoDB, Express.js, React, and Node.js, leveraging the strengths of each to create a dynamic, responsive, and user-friendly platform.
 
