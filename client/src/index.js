@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Take the strict mode out when deploying to production, it is only for 
+  // development and causes a performance hit and double API calls
   <React.StrictMode>
     <App />
   </React.StrictMode>
