@@ -1,5 +1,6 @@
 // Import statements
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home.tsx'; // Ensure this path is correct
 import ChartsPage from './ChartsPage.tsx'; // Ensure this path is correct
